@@ -1,10 +1,3 @@
-Below are clean, production-ready versions of both files.
-
----
-
-## 📄 `README.md`
-
-```markdown
 # Smart Text Summarizer (CLI)
 
 Smart Text Summarizer is a modular Python CLI application that analyzes raw text or `.txt` files using Ollama (`kimi-k2.5:cloud`) and returns:
