@@ -4,12 +4,20 @@ from config import OLLAMA_BASE_URL, MODEL_NAME
 
 def build_prompt(text: str) -> str:
     return f"""
-You are an intelligent summarization assistant.
+You are a summarization assistant.
 
-Analyze the following text and provide:
-1. A concise summary (3-5 sentences)
-2. Bullet point highlights
-3. Key topics (comma separated)
+Return your response in EXACT format:
+
+SUMMARY:
+<3-5 sentence summary>
+
+BULLETS:
+- point 1
+- point 2
+- point 3
+
+TOPICS:
+topic1, topic2, topic3
 
 Text:
 {text}
