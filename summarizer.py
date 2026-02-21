@@ -23,8 +23,28 @@ Text:
 {text}
 """
 
+def parse_response(response: str):
+    sections = {"summary": "", "bullets": [], "topics": []}
 
-def summarize_text(text: str) -> str:
+    try:
+        summary_part = response.split("SUMMARY:")[1].split("BULLETS:")[0].strip()
+        bullets_part = response.split("BULLETS:")[1].split("TOPICS:")[0].strip()
+        topics_part = response.split("TOPICS:")[1].strip()
+
+        sections["summary"] = summary_part
+        sections["bullets"] = [
+            line.replace("- ", "").strip()
+            for line in bullets_part.splitlines()
+            if line.startswith("-")
+        ]
+        sections["topics"] = [t.strip() for t in topics_part.split(",")]
+
+    except Exception:
+        raise ValueError("Unexpected AI response format.")
+
+    return sections
+
+def summarize_text(text: str):
     prompt = build_prompt(text)
 
     payload = {
@@ -33,14 +53,12 @@ def summarize_text(text: str) -> str:
         "stream": False
     }
 
-    try:
-        response = requests.post(
-            f"{OLLAMA_BASE_URL}/api/generate",
-            json=payload
-        )
+    response = requests.post(
+        f"{OLLAMA_BASE_URL}/api/generate",
+        json=payload
+    )
 
-        response.raise_for_status()
-        return response.json()["response"]
+    response.raise_for_status()
+    raw_output = response.json()["response"]
 
-    except requests.exceptions.RequestException as e:
-        raise ConnectionError(f"API request failed: {e}")
+    return parse_response(raw_output)
