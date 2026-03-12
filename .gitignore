@@ -43,3 +43,7 @@ logs/
 # Temporary files
 *.tmp
 *.temp
+
+# AI Configs
+.continue/
+.ai_handoff.md

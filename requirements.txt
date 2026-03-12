@@ -1,2 +1,6 @@
 python-dotenv
 requests
+pypdf
+python-docx
+rich
+beautifulsoup4
