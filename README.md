@@ -51,7 +51,7 @@ smart_summarizer/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/smart-text-summarizer.git
+git clone https://github.com/RyanMaxiemus/smart-summarizer.git
 cd smart-text-summarizer
 ````
 
