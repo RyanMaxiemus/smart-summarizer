@@ -1,3 +1,5 @@
+[![Need a Full-Stack AI Dev? Let's talk.](https://img.shields.io/badge/Need%20a%20Full--Stack%20AI%20Dev%3F%20Let%27s%20talk.-%231E90FF?style=for-the-badge&logo=github&logoColor=white)](https://linkedin.com/in/RyanMaxie)
+
 # Smart Text Summarizer (CLI)
 
 Smart Text Summarizer is a modular Python CLI application that analyzes raw text or `.txt` files using Ollama (`kimi-k2.5:cloud`) and returns:
